@@ -1,1 +1,4 @@
 #!/usr/bin/env bash
+
+echo "-----> VulsBuildpack/compile"
+echo "       \033[0;31mATTENTION: Compile step is not needed.\e[0m"
