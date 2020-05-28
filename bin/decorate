@@ -1,1 +1,5 @@
 #!/usr/bin/env bash
+
+echo "-----> VulsBuildpack/decorate"
+echo "       \033[0;31mATTENTION: meta-buildpack is getting deprecated by CloudFoundry.\e[0m"
+echo "       \033[0;31mplease load this buildpack using the multi-buildpack instead.\e[0m"
