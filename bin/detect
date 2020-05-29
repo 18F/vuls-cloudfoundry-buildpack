@@ -1,1 +1,7 @@
 #!/usr/bin/env bash
+#!/usr/bin/env bash
+
+echo "-----> VulsBuildpack/detect"
+echo "       \033[0;31mATTENTION: Cannot use as final buildpack, exiting.\e[0m"
+
+exit 1
