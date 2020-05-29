@@ -1,1 +1,24 @@
 #!/usr/bin/env bash
+
+echo "-----> VulsBuildpack/supply"
+
+BIN_DIR=$(cd $(dirname $0); pwd)
+ROOT_DIR=$(dirname $BIN_DIR)
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+echo "Installing the vuls executable"
+
+mkdir -p $BUILD_DIR/depscan
+mkdir -p $BUILD_DIR/.profile.d
+
+cp -r $ROOT_DIR/lib/dist $BUILD_DIR/depscan/
+
+if [ -f $ROOT_DIR/lib/vuls ]; then
+  cp $ROOT_DIR/lib/vuls $BUILD_DIR/depscan/vuls
+  chmod +x $BUILD_DIR/vuls/vuls
+fi
+
+cp $ROOT_DIR/lib/run-scan.sh $BUILD_DIR/.profile.d/00-run-scan.sh
+chmod +x $BUILD_DIR/.profile.d/00-run-scan.sh
