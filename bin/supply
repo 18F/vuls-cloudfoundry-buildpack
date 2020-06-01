@@ -24,6 +24,8 @@ curl -L -o $BUILD_DIR/vuls.tar.gz $VULS_URL
 
 tar -C $BUILD_DIR/depscan -xf $BUILD_DIR/vuls.tar.gz vuls
 
+rm -rf $BUILD_DIR/vuls.tar.gz
+
 if [ -f $ROOT_DIR/lib/vuls ]; then
   cp $ROOT_DIR/lib/vuls $BUILD_DIR/depscan/vuls
   chmod +x $BUILD_DIR/depscan/vuls
