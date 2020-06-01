@@ -14,6 +14,8 @@ VULS_URL="${VULS_URL:-https://github.com/future-architect/vuls/releases/download
 
 echo "Installing the vuls executable"
 
+echo "Environment is $(env)"
+
 mkdir -p $BUILD_DIR/depscan
 mkdir -p $BUILD_DIR/.profile.d
 
