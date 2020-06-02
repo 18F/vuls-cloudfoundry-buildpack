@@ -7,7 +7,7 @@ RESULTS_DIR="${RESULTS_DIR:-/home/vcap/tmp}"
 VULS_BIN="${VULS_BIN:-$VULS_PATH/vuls}"
 VULS_SCAN_OPTS="${VULS_SCAN_OPTS:-scan -config=${VULS_PATH}/dist/config.toml -results-dir=${RESULTS_DIR}}"
 UPLOAD_BIN=${UPLOAD_BIN:-/usr/bin/curl}
-UPLOAD_OPTS="${UPLOAD_OPTS:--X POST -H "Content-Type: application/json" -d @$RESULTS_DIR/current/localhost.json $VULS_HTTP_SERVER}"
+UPLOAD_OPTS="${UPLOAD_OPTS:--X POST -H 'Content-Type: application/json' -d @${RESULTS_DIR}/current/localhost.json ${VULS_HTTP_SERVER}}"
 
 date >> /tmp/vuls_profiled_exec_test.log
 echo $VULS_BIN $VULS_SCAN_OPTS >> /tmp/vuls_profiled_exec_test.log
