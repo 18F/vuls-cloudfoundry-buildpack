@@ -6,7 +6,7 @@ VULS_PATH="${VULS_PATH:-/home/vcap/deps/##INDEX##}"
 RESULTS_DIR="${DEPSCAN_DIR:-/home/vcap/tmp}"
 
 $VULS_PATH/vuls scan \
-    -config=$VULS_PATH/dist/config.toml
+    -config=$VULS_PATH/dist/config.toml \
     -results-dir=$RESULTS_DIR
 
 curl -X POST \
