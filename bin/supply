@@ -12,7 +12,7 @@ INDEX=$4
 VULS_URL="${VULS_URL:-https://github.com/future-architect/vuls/releases/download/v0.9.6/vuls_0.9.6_linux_amd64.tar.gz}"
 VULS_DIR=$DEPS_DIR/$INDEX
 
-echo "Installing the vuls executable"
+echo "Installing the vuls to ${VULS_DIR}"
 
 mkdir -p $VULS_DIR/depscan
 mkdir -p $BUILD_DIR/.profile.d
