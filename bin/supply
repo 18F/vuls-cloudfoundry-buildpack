@@ -14,21 +14,21 @@ VULS_DIR=$DEPS_DIR/$INDEX
 
 echo "Installing the vuls to ${VULS_DIR}"
 
-mkdir -p $VULS_DIR/depscan
+mkdir -p $VULS_DIR
 mkdir -p $BUILD_DIR/.profile.d
 
-cp -r $ROOT_DIR/lib/dist $VULS_DIR/depscan/
+cp -r $ROOT_DIR/lib/dist $VULS_DIR/
 
 echo "Download vuls asset from ${VULS_URL}"
 curl -L -o $VULS_DIR/vuls.tar.gz $VULS_URL
 
-tar -C $VULS_DIR/depscan -xf $VULS_DIR/vuls.tar.gz vuls
+tar -C $VULS_DIR -xf $VULS_DIR/vuls.tar.gz vuls
 
 rm -rf $VULS_DIR/vuls.tar.gz
 
 if [ -f $ROOT_DIR/lib/vuls ]; then
-  cp $ROOT_DIR/lib/vuls $BUILD_DIR/depscan/vuls
-  chmod +x $VULS_DIR/depscan/vuls
+  cp $ROOT_DIR/lib/vuls $BUILD_DIR/vuls
+  chmod +x $VULS_DIR/vuls
 fi
 
 cp $ROOT_DIR/lib/run-scan.sh $BUILD_DIR/.profile.d/00-run-scan.sh
