@@ -21,11 +21,13 @@ mkdir -p $BUILD_DIR/.profile.d
 cp -r $ROOT_DIR/lib/dist $VULS_DIR/
 
 echo "Download vuls asset from ${VULS_URL}"
-curl -L -o $VULS_DIR/vuls.tar.gz $VULS_URL
+DOWNLOAD_PATH=$VULS_DIR/vuls.tar.gz
 
-tar -C $VULS_DIR -xf $VULS_DIR/vuls.tar.gz vuls
+curl -L -o $DOWNLOAD_PATH $VULS_URL
 
-rm -rf $VULS_DIR/vuls.tar.gz
+tar -C $VULS_DIR -xf $DOWNLOAD_PATH vuls
+
+rm -rf $DOWNLOAD_PATH
 
 if [ -f $ROOT_DIR/lib/vuls ]; then
   cp $ROOT_DIR/lib/vuls $BUILD_DIR/vuls
