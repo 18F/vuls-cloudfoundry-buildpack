@@ -5,7 +5,7 @@ VULS_HTTP_SERVER="${VULS_HTTP_SERVER:-http://localhost:5515/vuls}"
 VULS_PATH="${VULS_PATH:-/home/vcap/deps/##INDEX##}"
 RESULTS_DIR="${RESULTS_DIR:-/home/vcap/tmp}"
 SCAN_BIN="${VULS_BIN:-${VULS_PATH}/vuls}"
-SCAN_OPTS="${VULS_SCAN_OPTS:-scan -config=${VULS_PATH}/dist/config.toml -results-dir=${RESULTS_DIR}}"
+SCAN_OPTS="${VULS_SCAN_OPTS:-scan -config=${VULS_PATH}/dist/config.toml -results-dir=${RESULTS_DIR} -libs-only}"
 UPLOAD_BIN="${UPLOAD_BIN:-''}"
 UPLOAD_OPTS="${UPLOAD_OPTS:-''}"
 
