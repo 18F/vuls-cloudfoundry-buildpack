@@ -1,0 +1,7 @@
+[servers]
+
+[servers.localhost]
+host = "localhost"
+port = "local"
+findLock = true
+scanMode     = ["offline"]
