@@ -9,7 +9,7 @@ CACHE_DIR=$2
 DEPS_DIR=$3
 INDEX=$4
 
-VULS_VERSION=${VULS_VERSION:-0.9.6}
+VULS_VERSION=${VULS_VERSION:-0.9.7}
 VULS_URL="${VULS_URL:-https://github.com/future-architect/vuls/releases/download/v${VULS_VERSION}/vuls_${VULS_VERSION}_linux_amd64.tar.gz}"
 VULS_DIR=$DEPS_DIR/$INDEX
 
