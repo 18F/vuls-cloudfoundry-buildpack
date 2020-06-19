@@ -1,6 +1,6 @@
 [servers]
 
-[servers.localhost]
+[servers.placeholder]
 host = "localhost"
 port = "local"
 findLock = true
