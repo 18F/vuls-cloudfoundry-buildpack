@@ -34,7 +34,11 @@ if [ -f $ROOT_DIR/lib/vuls ]; then
   chmod +x $VULS_DIR/vuls
 fi
 
+CF_APP_NAME="$(echo ${VCAP_APPLICATION} | jq -r '.application_name')"
+VULS_HOST_ID="${CF_APP_NAME}-${CF_INSTANCE_INDEX}-${CF_INSTANCE_GUID}"
+
 cp $ROOT_DIR/lib/run-scan.sh $BUILD_DIR/.profile.d/00-run-scan.sh
 sed -i "s/##INDEX##/${INDEX}/" $BUILD_DIR/.profile.d/00-run-scan.sh
+sed -i "s/servers.placeholder/servers.${VULS_HOST_ID}/" $VULS_DIR/dist/config.toml
 
 chmod +x $BUILD_DIR/.profile.d/00-run-scan.sh
