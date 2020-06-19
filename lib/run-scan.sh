@@ -22,6 +22,6 @@ else
   echo "Uploading with curl default"
   /usr/bin/curl -X POST \
     -H 'Content-Type: application/json' \
-    -d @${RESULTS_DIR}/current/localhost.json \
+    -d @${RESULTS_DIR}/current/${VULS_HOST_ID}.json \
     ${VULS_HTTP_SERVER}
 fi
