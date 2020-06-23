@@ -2,7 +2,7 @@
 
 VULS_SERVER="${VULS_SERVER:-127.0.0.1}"
 VULS_HTTP_SERVER="${VULS_HTTP_SERVER:-http://localhost:5515/vuls}"
-VULS_PATH="${VULS_PATH:-/home/vcap/deps/##INDEX##}"
+VULS_DIR="${VULS_DIR:-/home/vcap/deps/##INDEX##}"
 CF_APP_NAME="$(echo ${VCAP_APPLICATION} | jq -r '.application_name')"
 VULS_HOST_ID="${VULS_HOST_ID:-${CF_APP_NAME}-${CF_INSTANCE_INDEX}-${CF_INSTANCE_GUID}}"
 RESULTS_DIR="${RESULTS_DIR:-/home/vcap/tmp}"
