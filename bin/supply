@@ -9,6 +9,12 @@ CACHE_DIR=$2
 DEPS_DIR=$3
 INDEX=$4
 
+echo $BIN_DIR
+echo $ROOT_DIR
+echo $BUILD_DIR
+echo $DEPS_DIR
+echo $INDEX
+
 SCRON_VERSION=${SCRON_VERSION:-0.1.11}
 SCRON_URL=${SCRON_URL:-https://github.com/aptible/supercronic/releases/download/v${SCRON_VERSION}/supercronic-linux-amd64}
 SCRON_SHA1SUM=a2e2d47078a8dafc5949491e5ea7267cc721d67c
@@ -35,10 +41,6 @@ curl -L -o $DOWNLOAD_PATH $SCRON_URL
 echo "${SCRON_SHA1SUM}  ${DOWNLOAD_PATH}" | sha1sum -c
 
 chmod +x $DOWNLOAD_PATH
-
-cp $DOWNLOAD_PATH $SCRON_DIR
-
-rm -rf $DOWNLOAD_PATH
 
 echo "Download vuls asset from ${VULS_URL}"
 DOWNLOAD_PATH=$VULS_DIR/vuls.tar.gz
