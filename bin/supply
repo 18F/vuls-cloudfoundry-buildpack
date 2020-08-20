@@ -27,14 +27,14 @@ mkdir -p $BUILD_DIR/.profile.d
 cp -r $ROOT_DIR/lib/dist $VULS_DIR/
 
 echo "Download superchronic asset from ${SCHRON_URL}"
-DOWNLOAD_PATH=$SCHRON_DIR/supercronic-linux-amd64
+DOWNLOAD_PATH=$SCHRON_DIR/supercronic
 
 curl -L -o $DOWNLOAD_PATH $SCHRON_URL
 
 echo "${SCHRON_SHA1SUM}  ${DOWNLOAD_PATH}" | sha1sum -c
 
 if [ -f $ROOT_DIR/lib/superchronic ]; then
-  cp $ROOT_DIR/lib/supercronic-linux-amd64 $BUILD_DIR/supercronic
+  cp $ROOT_DIR/lib/supercronic $BUILD_DIR/supercronic
   chmod +x $SCHRON_DIR/supercronic
 fi
 
