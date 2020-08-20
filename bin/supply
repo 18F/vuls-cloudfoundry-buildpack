@@ -39,6 +39,8 @@ if [ -f $ROOT_DIR/lib/superchronic ]; then
   cp $ROOT_DIR/lib/supercronic $BUILD_DIR/supercronic
 fi
 
+rm -rf $DOWNLOAD_PATH
+
 echo "Download vuls asset from ${VULS_URL}"
 DOWNLOAD_PATH=$VULS_DIR/vuls.tar.gz
 
