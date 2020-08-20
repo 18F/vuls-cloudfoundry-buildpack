@@ -17,6 +17,8 @@ echo $INDEX
 
 find $ROOT_DIR
 
+STAGING_DIR=$DEPS_DIR/$INDEX
+
 SCRON_VERSION=${SCRON_VERSION:-0.1.11}
 SCRON_URL=${SCRON_URL:-https://github.com/aptible/supercronic/releases/download/v${SCRON_VERSION}/supercronic-linux-amd64}
 SCRON_SHA1SUM=a2e2d47078a8dafc5949491e5ea7267cc721d67c
@@ -25,7 +27,6 @@ SCRON_CRONTAB=${SCRON_CRONTAB:-${STAGING_DIR}/dist/crontab}
 VULS_VERSION=${VULS_VERSION:-0.11.0}
 VULS_URL="${VULS_URL:-https://github.com/future-architect/vuls/releases/download/v${VULS_VERSION}/vuls_${VULS_VERSION}_linux_amd64.tar.gz}"
 
-STAGING_DIR=$DEPS_DIR/$INDEX
 
 echo "Installing the vuls to ${STAGING_DIR}"
 
