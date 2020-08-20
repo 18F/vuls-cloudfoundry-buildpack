@@ -9,16 +9,34 @@ CACHE_DIR=$2
 DEPS_DIR=$3
 INDEX=$4
 
+SCHRON_VERSION=${SCHRON_VERSION:-0.1.11}
+SCHRON_URL=${SUPERCHRONIC_URL:-https://github.com/aptible/supercronic/releases/download/v%{SCHRON_VERSION}/supercronic-linux-amd64}
+SCHRON_SHA1SUM=a2e2d47078a8dafc5949491e5ea7267cc721d67c
+SCHRON_DIR=$DEPS_DIR/$INDEX
+
 VULS_VERSION=${VULS_VERSION:-0.9.6}
 VULS_URL="${VULS_URL:-https://github.com/future-architect/vuls/releases/download/v${VULS_VERSION}/vuls_${VULS_VERSION}_linux_amd64.tar.gz}"
 VULS_DIR=$DEPS_DIR/$INDEX
 
 echo "Installing the vuls to ${VULS_DIR}"
 
+mkdir -p $SCHRON_DIR
 mkdir -p $VULS_DIR
 mkdir -p $BUILD_DIR/.profile.d
 
 cp -r $ROOT_DIR/lib/dist $VULS_DIR/
+
+echo "Download superchronic asset from ${SCHRON_URL}"
+DOWNLOAD_PATH=$SCHRON_DIR/supercronic-linux-amd64
+
+curl -L -o $DOWNLOAD_PATH $SCHRON_URL
+
+echo "${SCHRON_SHA1SUM}  ${DOWNLOAD_PATH}" | sha1sum -c
+
+if [ -f $ROOT_DIR/lib/superchronic ]; then
+  cp $ROOT_DIR/lib/supercronic-linux-amd64 $BUILD_DIR/supercronic
+  chmod +x $SCHRON_DIR/supercronic
+fi
 
 echo "Download vuls asset from ${VULS_URL}"
 DOWNLOAD_PATH=$VULS_DIR/vuls.tar.gz
@@ -27,12 +45,12 @@ curl -L -o $DOWNLOAD_PATH $VULS_URL
 
 tar -C $VULS_DIR -xf $DOWNLOAD_PATH vuls
 
-rm -rf $DOWNLOAD_PATH
-
 if [ -f $ROOT_DIR/lib/vuls ]; then
   cp $ROOT_DIR/lib/vuls $BUILD_DIR/vuls
   chmod +x $VULS_DIR/vuls
 fi
+
+rm -rf $DOWNLOAD_PATH
 
 cp $ROOT_DIR/lib/run-scan.sh $BUILD_DIR/.profile.d/00-run-scan.sh
 sed -i "s/##INDEX##/${INDEX}/" $BUILD_DIR/.profile.d/00-run-scan.sh
