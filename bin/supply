@@ -33,9 +33,10 @@ curl -L -o $DOWNLOAD_PATH $SCRON_URL
 
 echo "${SCRON_SHA1SUM}  ${DOWNLOAD_PATH}" | sha1sum -c
 
+chmod +x $DOWNLOAD_PATH
+
 if [ -f $ROOT_DIR/lib/superchronic ]; then
   cp $ROOT_DIR/lib/supercronic $BUILD_DIR/supercronic
-  chmod +x $SCRON_DIR/supercronic
 fi
 
 echo "Download vuls asset from ${VULS_URL}"
