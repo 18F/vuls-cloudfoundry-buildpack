@@ -13,7 +13,7 @@ SCRON_VERSION=${SCRON_VERSION:-0.1.11}
 SCRON_URL=${SCRON_URL:-https://github.com/aptible/supercronic/releases/download/v${SCRON_VERSION}/supercronic-linux-amd64}
 SCRON_SHA1SUM=a2e2d47078a8dafc5949491e5ea7267cc721d67c
 SCRON_DIR=$DEPS_DIR/$INDEX
-SCRON_CRONTAB=${SCRON_CRONTAB:-${SCRON_DIR}/lib/dist/crontab}
+SCRON_CRONTAB=${SCRON_CRONTAB:-${SCRON_DIR}/dist/crontab}
 
 VULS_VERSION=${VULS_VERSION:-0.11.0}
 VULS_URL="${VULS_URL:-https://github.com/future-architect/vuls/releases/download/v${VULS_VERSION}/vuls_${VULS_VERSION}_linux_amd64.tar.gz}"
@@ -26,12 +26,6 @@ mkdir -p $VULS_DIR
 mkdir -p $BUILD_DIR/.profile.d
 
 cp -r $ROOT_DIR/lib/dist $VULS_DIR/
-
-echo "DEBUG: Show lib/dist files"
-echo "ROOT_DIR: "
-find $ROOT_DIR/lib/dist 
-echo "VULS_DIR: "
-find $VULS_DIR
 
 echo "Download superchronic asset from ${SCRON_URL}"
 DOWNLOAD_PATH=$SCRON_DIR/supercronic
