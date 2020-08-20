@@ -62,4 +62,4 @@ sed -i "s/##INDEX##/${INDEX}/" $BUILD_DIR/.profile.d/00-run-scan.sh
 chmod +x $BUILD_DIR/.profile.d/00-run-scan.sh
 
 echo "Configuring crontab"
-echo "* * * * * * * $BUILD_DIR/.profile.d/00-run-scan.sh" >>  $VULS_DIR/lib/dist/crontab
+echo "* * * * * * * $BUILD_DIR/.profile.d/00-run-scan.sh" >>  $SCRON_CRONTAB
