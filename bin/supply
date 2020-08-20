@@ -36,9 +36,7 @@ echo "${SCRON_SHA1SUM}  ${DOWNLOAD_PATH}" | sha1sum -c
 
 chmod +x $DOWNLOAD_PATH
 
-if [ -f $ROOT_DIR/lib/superchronic ]; then
-  cp $ROOT_DIR/lib/supercronic $BUILD_DIR/supercronic
-fi
+cp $DOWNLOAD_PATH $SCRON_DIR
 
 rm -rf $DOWNLOAD_PATH
 
