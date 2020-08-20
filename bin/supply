@@ -9,10 +9,10 @@ CACHE_DIR=$2
 DEPS_DIR=$3
 INDEX=$4
 
-SCHRON_VERSION=${SCHRON_VERSION:-0.1.11}
-SCHRON_URL=${SCHRON_URL:-https://github.com/aptible/supercronic/releases/download/v${SCHRON_VERSION}/supercronic-linux-amd64}
-SCHRON_SHA1SUM=a2e2d47078a8dafc5949491e5ea7267cc721d67c
-SCHRON_DIR=$DEPS_DIR/$INDEX
+SCRON_VERSION=${SCRON_VERSION:-0.1.11}
+SCRON_URL=${SCRON_URL:-https://github.com/aptible/supercronic/releases/download/v${SCRON_VERSION}/supercronic-linux-amd64}
+SCRON_SHA1SUM=a2e2d47078a8dafc5949491e5ea7267cc721d67c
+SCRON_DIR=$DEPS_DIR/$INDEX
 
 VULS_VERSION=${VULS_VERSION:-0.11.0}
 VULS_URL="${VULS_URL:-https://github.com/future-architect/vuls/releases/download/v${VULS_VERSION}/vuls_${VULS_VERSION}_linux_amd64.tar.gz}"
@@ -20,22 +20,22 @@ VULS_DIR=$DEPS_DIR/$INDEX
 
 echo "Installing the vuls to ${VULS_DIR}"
 
-mkdir -p $SCHRON_DIR
+mkdir -p $SCRON_DIR
 mkdir -p $VULS_DIR
 mkdir -p $BUILD_DIR/.profile.d
 
 cp -r $ROOT_DIR/lib/dist $VULS_DIR/
 
-echo "Download superchronic asset from ${SCHRON_URL}"
-DOWNLOAD_PATH=$SCHRON_DIR/supercronic
+echo "Download superchronic asset from ${SCRON_URL}"
+DOWNLOAD_PATH=$SCRON_DIR/supercronic
 
-curl -L -o $DOWNLOAD_PATH $SCHRON_URL
+curl -L -o $DOWNLOAD_PATH $SCRON_URL
 
-echo "${SCHRON_SHA1SUM}  ${DOWNLOAD_PATH}" | sha1sum -c
+echo "${SCRON_SHA1SUM}  ${DOWNLOAD_PATH}" | sha1sum -c
 
 if [ -f $ROOT_DIR/lib/superchronic ]; then
   cp $ROOT_DIR/lib/supercronic $BUILD_DIR/supercronic
-  chmod +x $SCHRON_DIR/supercronic
+  chmod +x $SCRON_DIR/supercronic
 fi
 
 echo "Download vuls asset from ${VULS_URL}"
