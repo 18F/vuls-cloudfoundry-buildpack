@@ -14,7 +14,7 @@ SCHRON_URL=${SUPERCHRONIC_URL:-https://github.com/aptible/supercronic/releases/d
 SCHRON_SHA1SUM=a2e2d47078a8dafc5949491e5ea7267cc721d67c
 SCHRON_DIR=$DEPS_DIR/$INDEX
 
-VULS_VERSION=${VULS_VERSION:-0.9.6}
+VULS_VERSION=${VULS_VERSION:-0.11.0}
 VULS_URL="${VULS_URL:-https://github.com/future-architect/vuls/releases/download/v${VULS_VERSION}/vuls_${VULS_VERSION}_linux_amd64.tar.gz}"
 VULS_DIR=$DEPS_DIR/$INDEX
 
