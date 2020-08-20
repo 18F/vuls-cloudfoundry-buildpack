@@ -27,6 +27,12 @@ mkdir -p $BUILD_DIR/.profile.d
 
 cp -r $ROOT_DIR/lib/dist $VULS_DIR/
 
+echo "DEBUG: Show lib/dist files"
+echo "ROOT_DIR: "
+find $ROOT_DIR/lib/dist 
+echo "VULS_DIR: "
+find $VULS_DIR
+
 echo "Download superchronic asset from ${SCRON_URL}"
 DOWNLOAD_PATH=$SCRON_DIR/supercronic
 
