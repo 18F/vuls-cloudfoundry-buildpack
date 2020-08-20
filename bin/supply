@@ -21,6 +21,7 @@ SCRON_VERSION=${SCRON_VERSION:-0.1.11}
 SCRON_URL=${SCRON_URL:-https://github.com/aptible/supercronic/releases/download/v${SCRON_VERSION}/supercronic-linux-amd64}
 SCRON_SHA1SUM=a2e2d47078a8dafc5949491e5ea7267cc721d67c
 SCRON_CRONTAB=${SCRON_CRONTAB:-${STAGING_DIR}/dist/crontab}
+SCRON_CRONTAB_CMD=${SCRON_CRONTAB_CMD:-"0 22 * * * /home/vcap/app/.profile.d/00-run-scan.sh"}
 
 VULS_VERSION=${VULS_VERSION:-0.11.0}
 VULS_URL="${VULS_URL:-https://github.com/future-architect/vuls/releases/download/v${VULS_VERSION}/vuls_${VULS_VERSION}_linux_amd64.tar.gz}"
@@ -65,4 +66,4 @@ sed -i "s/##INDEX##/${INDEX}/" $BUILD_DIR/.profile.d/00-run-scan.sh
 chmod +x $BUILD_DIR/.profile.d/00-run-scan.sh
 
 echo "Configuring crontab"
-echo "0 16 * * * /home/vcap/app/.profile.d/00-run-scan.sh" >>  $SCRON_CRONTAB
+echo "${SCRON_CRONTAB_CMD}" >>  $SCRON_CRONTAB
