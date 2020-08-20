@@ -10,7 +10,7 @@ DEPS_DIR=$3
 INDEX=$4
 
 SCHRON_VERSION=${SCHRON_VERSION:-0.1.11}
-SCHRON_URL=${SCHRON_URL:-https://github.com/aptible/supercronic/releases/download/v%{SCHRON_VERSION}/supercronic-linux-amd64}
+SCHRON_URL=${SCHRON_URL:-https://github.com/aptible/supercronic/releases/download/v${SCHRON_VERSION}/supercronic-linux-amd64}
 SCHRON_SHA1SUM=a2e2d47078a8dafc5949491e5ea7267cc721d67c
 SCHRON_DIR=$DEPS_DIR/$INDEX
 
