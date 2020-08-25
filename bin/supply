@@ -13,7 +13,7 @@ STAGING_DIR=$DEPS_DIR/$INDEX
 
 SCRON_VERSION=${SCRON_VERSION:-5.27.0}
 SCRON_ARCHIVE=${SCRON_ARCHIVE:-monit-${SCRON_VERSION}.tar.gz}
-SCRON_URL=${SCRON_URL:-https://bitbucket.org/tildeslash/monit/downloads/SCRON_ARCHIVE}
+SCRON_URL=${SCRON_URL:-https://bitbucket.org/tildeslash/monit/downloads/${SCRON_ARCHIVE}}
 SCRON_SHA1SUM=${SCRON_SHA1SUM:-${SCRON_URL}.sha256}
 SCRON_CRONTAB=${SCRON_CRONTAB:-${STAGING_DIR}/dist/crontab}
 SCRON_CRONTAB_CMD=${SCRON_CRONTAB_CMD:-"5 6 * * * /home/vcap/app/.profile.d/00-run-scan.sh"}
