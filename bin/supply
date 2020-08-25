@@ -43,8 +43,8 @@ tar -C /tmp -xf $SCRON_ARCHIVE
 
 (
   cd /tmp/$(basename $SCRON_ARCHIVE .tar.gz) && \
-  ./configure && \
-  make --prefix=$STAGING_DIR --without-pam && \
+  ./configure --prefix=$STAGING_DIR --without-pam && \
+  make && \
   make install
 )
 
