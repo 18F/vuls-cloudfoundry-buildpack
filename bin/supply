@@ -42,7 +42,7 @@ sha256sum -c $SCRON_ARCHIVE.sha256
 tar -C /tmp -xf $SCRON_ARCHIVE
 
 (
-  cd /tmp/${SCRON_ARCHIVE%%.*} && \
+  cd /tmp/$(basename $SCRON_ARCHIVE .tar.gz) && \
   ./configure && \
   make --prefix=$STAGING_DIR --without-pam && \
   make install
