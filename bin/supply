@@ -37,7 +37,7 @@ curl -L -O $SCRON_URL
 
 curl -L -O $SCRON_SHA1SUM
 
-sha256sum -c $SCRON_SHA1SUM
+sha256sum -c $SCRON_ARCHIVE.sha256
 
 tar -C /tmp -xf $SCRON_ARCHIVE
 
