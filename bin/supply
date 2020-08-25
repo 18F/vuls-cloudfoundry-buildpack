@@ -11,9 +11,10 @@ INDEX=$4
 
 STAGING_DIR=$DEPS_DIR/$INDEX
 
-SCRON_VERSION=${SCRON_VERSION:-0.1.11}
-SCRON_URL=${SCRON_URL:-https://github.com/aptible/supercronic/releases/download/v${SCRON_VERSION}/supercronic-linux-amd64}
-SCRON_SHA1SUM=a2e2d47078a8dafc5949491e5ea7267cc721d67c
+SCRON_VERSION=${SCRON_VERSION:-5.27.0}
+SCRON_ARCHIVE=${SCRON_ARCHIVE:-monit-${SCRON_VERSION}.tar.gz}
+SCRON_URL=${SCRON_URL:-https://bitbucket.org/tildeslash/monit/downloads/SCRON_ARCHIVE}
+SCRON_SHA1SUM=${SCRON_SHA1SUM:-${SCRON_URL}.sha256}
 SCRON_CRONTAB=${SCRON_CRONTAB:-${STAGING_DIR}/dist/crontab}
 SCRON_CRONTAB_CMD=${SCRON_CRONTAB_CMD:-"5 6 * * * /home/vcap/app/.profile.d/00-run-scan.sh"}
 
@@ -29,14 +30,25 @@ mkdir -p $BUILD_DIR/.profile.d
 
 cp -r $ROOT_DIR/lib/dist $STAGING_DIR/
 
-echo "Download superchronic asset from ${SCRON_URL}"
-DOWNLOAD_PATH=$STAGING_DIR/supercronic
+echo "Download monit asset from ${SCRON_URL}"
+pushd /tmp
 
-curl -L -o $DOWNLOAD_PATH $SCRON_URL
+curl -L -O $SCRON_URL
 
-echo "${SCRON_SHA1SUM}  ${DOWNLOAD_PATH}" | sha1sum -c
+curl -L -O $SCRON_SHA1SUM
 
-chmod +x $DOWNLOAD_PATH
+sha256sum -c $SCRON_SHA1SUM
+
+tar -C /tmp -xf $SCRON_ARCHIVE
+
+(
+  cd /tmp/${SCRON_ARCHIVE%%.*} && \
+  ./configure && \
+  make --prefix=$STAGING_DIR --without-pam && \
+  make install
+)
+
+popd
 
 echo "Download vuls asset from ${VULS_URL}"
 DOWNLOAD_PATH=$STAGING_DIR/vuls.tar.gz
