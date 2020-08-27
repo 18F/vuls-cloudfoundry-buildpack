@@ -2,3 +2,8 @@
 # daemon-like process in a sidecar buildpack to run schedule execution of
 # an executable that has no daemon-like functionality for long-running
 # processes.
+
+check program vuls_scan
+    with path "/home/vcap/app/.profile.d/00-run-scan.sh"
+    every "0 10 * * *"
+    if status != 0 then alert
