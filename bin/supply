@@ -53,13 +53,15 @@ popd
 echo "Download vuls asset from ${VULS_URL}"
 DOWNLOAD_PATH=$STAGING_DIR/vuls.tar.gz
 
+mkdir -p $STAGING_DIR/bin
+
 curl -L -o $DOWNLOAD_PATH $VULS_URL
 
-tar -C $STAGING_DIR -xf $DOWNLOAD_PATH vuls
+tar -C $STAGING_DIR/bin -xf $DOWNLOAD_PATH vuls
 
 if [ -f $ROOT_DIR/lib/vuls ]; then
   cp $ROOT_DIR/lib/vuls $BUILD_DIR/vuls
-  chmod +x $STAGING_DIR/vuls
+  chmod +x $STAGING_DIR/bin/vuls
 fi
 
 rm -rf $DOWNLOAD_PATH
