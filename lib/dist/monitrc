@@ -1,4 +1,4 @@
-# This crontab is for configuring the supercronic utility to have a usable
+# This crontab is for configuring the monit utility to have a usable
 # daemon-like process in a sidecar buildpack to run schedule execution of
 # an executable that has no daemon-like functionality for long-running
 # processes.
