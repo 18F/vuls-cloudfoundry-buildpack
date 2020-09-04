@@ -73,3 +73,5 @@ chmod +x $BUILD_DIR/.profile.d/00-run-scan.sh
 
 echo "Configuring crontab"
 chmod 0700 $STAGING_DIR/dist/monitrc
+
+cp launch.yml $STAGING_DIR

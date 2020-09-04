@@ -1,0 +1,9 @@
+---
+    processes:
+    - type: monit
+      command: monit -d 5 -c dist/monitrc
+      limits:
+        memory: 10
+      platforms:
+        cloudfoundry:
+          sidecar_for: ["web"]
