@@ -4,6 +4,6 @@
 # processes.
 
 check program vuls_scan
-    with path "/home/vcap/app/.profile.d/00-run-scan.sh"
+    with path "/usr/bin/true"
     every "0 10 * * *"
     if status != 0 then alert
