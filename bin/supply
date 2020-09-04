@@ -8,11 +8,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 DEPS_DIR=$3
 INDEX=$4
-
 STAGING_DIR=$DEPS_DIR/$INDEX
-
-pwd
-find $ROOT_DIR
 
 MONIT_VERSION=${MONIT_VERSION:-5.27.0}
 MONIT_ARCHIVE=${MONIT_ARCHIVE:-monit-${MONIT_VERSION}.tar.gz}
@@ -69,6 +65,7 @@ fi
 
 rm -rf $DOWNLOAD_PATH
 
+cp $ROOT_DIR/lib/dist/monitrc $BUILD_DIR/monitrc
 cp $ROOT_DIR/lib/run-scan.sh $BUILD_DIR/.profile.d/00-run-scan.sh
 sed -i "s/##INDEX##/${INDEX}/" $BUILD_DIR/.profile.d/00-run-scan.sh
 
@@ -77,4 +74,4 @@ chmod +x $BUILD_DIR/.profile.d/00-run-scan.sh
 echo "Configuring crontab"
 chmod 0700 $STAGING_DIR/dist/monitrc
 
-cp launch.yml $STAGING_DIR
+cp $ROOT_DIR/launch.yml $STAGING_DIR/launch.yml
