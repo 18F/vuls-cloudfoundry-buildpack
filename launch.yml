@@ -1,7 +1,7 @@
 ---
     processes:
     - type: monit
-      command: monit -d 5 -c app/monitrc
+      command: monit -d 5 -c /home/vcap/app/monitrc
       limits:
         memory: 10
       platforms:
