@@ -1,0 +1,14 @@
+default_versions: []
+dependencies: []
+dependency_deprecation_dates: []
+include_files:
+- bin/compile
+- bin/decorate
+- bin/detect
+- bin/supply
+- lib/run-scan.sh
+- lib/dist/config.toml
+- lib/dist/monitrc
+- manifest.yml
+language: vuls-cloudfoundry-buildpack
+stack: cflinuxfs3
