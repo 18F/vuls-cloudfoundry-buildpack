@@ -6,4 +6,4 @@
         memory: 10
       platforms:
         cloudfoundry:
-          sidecar_for: ["web"]
+          sidecar_for: ["process"]
