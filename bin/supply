@@ -66,10 +66,10 @@ fi
 rm -rf $DOWNLOAD_PATH
 
 cp $ROOT_DIR/lib/dist/monitrc $BUILD_DIR/monitrc
-cp $ROOT_DIR/lib/run-scan.sh $BUILD_DIR/.profile.d/00-run-scan.sh
-sed -i "s/##INDEX##/${INDEX}/" $BUILD_DIR/.profile.d/00-run-scan.sh
+#cp $ROOT_DIR/lib/run-scan.sh $BUILD_DIR/.profile.d/00-run-scan.sh
+#sed -i "s/##INDEX##/${INDEX}/" $BUILD_DIR/.profile.d/00-run-scan.sh
 
-chmod +x $BUILD_DIR/.profile.d/00-run-scan.sh
+#chmod +x $BUILD_DIR/.profile.d/00-run-scan.sh
 
 echo "Configuring crontab"
 chmod 0700 $STAGING_DIR/dist/monitrc
