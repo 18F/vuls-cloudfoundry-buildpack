@@ -8,7 +8,7 @@ RESULTS_DIR="${RESULTS_DIR:-/home/vcap/tmp}"
 SCAN_BIN="${SCAN_BIN:-vuls}"
 SCAN_OPTS="${SCAN_OPTS:-scan -config=config.toml -libs-only -results-dir=${RESULTS_DIR}}"
 UPLOAD_BIN="${UPLOAD_BIN:-''}"
-UPLOAD_OPTS="${UPLOAD_OPTS:-'--connect-timeout 0.5 --max-time 10'}"
+UPLOAD_OPTS="${UPLOAD_OPTS:-''}"
 
 sed -i "s/servers.placeholder/servers.${VULS_HOST_ID}/" config.toml
 
@@ -19,7 +19,9 @@ if [[ -z "$UPLOAD_BIN" ]]; then
   $UPLOAD_BIN $UPLOAD_OPTS
 else
   echo "Uploading with curl default"
-  /usr/bin/curl -X POST \
+  /usr/bin/curl \
+    --connect-timeout 2 --max-time 10 \
+    -X POST \
     -H 'Content-Type: application/json' \
     -d @${RESULTS_DIR}/current/${VULS_HOST_ID}.json \
     ${VULS_HTTP_SERVER}
