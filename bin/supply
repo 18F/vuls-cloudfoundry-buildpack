@@ -67,7 +67,7 @@ rm -rf $DOWNLOAD_PATH
 
 cp $ROOT_DIR/lib/dist/monitrc $BUILD_DIR/monitrc
 cp $ROOT_DIR/lib/dist/config.toml $BUILD_DIR/config.toml
-cp $ROOT_DIR/lib/run-scan.sh $STAGING_DIR/binrun-scan
+cp $ROOT_DIR/lib/run-scan.sh $STAGING_DIR/bin/run-scan
 #sed -i "s/##INDEX##/${INDEX}/" $STAGING_DIR/bin/run-scan
 
 chmod +x $STAGING_DIR/bin/run-scan
