@@ -8,8 +8,7 @@ set httpd
     use address 127.0.0.1
     allow 0.0.0.0/0.0.0.0
 
-check program scan
+check program dependency_upgrades_scan
     with path "/home/vcap/app/run-scan.sh"
     without timeout 60 seconds
-    every "0 1 * * *"
     if status != 0 then alert

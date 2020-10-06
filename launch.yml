@@ -1,7 +1,7 @@
 ---
     processes:
     - type: monit
-      command: "while true; do echo hello from a sidecar process; sleep 10; done"
+      command: "monit -vv -d 120 -c monitrc -l /home/vcap/logs/monit.log"
       limits:
         memory: 10
       platforms:
