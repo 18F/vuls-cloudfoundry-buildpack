@@ -3,6 +3,11 @@
 # an executable that has no daemon-like functionality for long-running
 # processes.
 
+set httpd
+    port 2812
+    use address 127.0.0.1
+    allow 0.0.0.0/0.0.0.0
+
 check program scan
     with path "/home/vcap/app/run-scan.sh"
     every "0 1 * * *"
