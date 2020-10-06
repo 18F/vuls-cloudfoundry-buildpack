@@ -2,16 +2,15 @@
 
 VULS_SERVER="${VULS_SERVER:-127.0.0.1}"
 VULS_HTTP_SERVER="${VULS_HTTP_SERVER:-http://localhost:5515/vuls}"
-VULS_DIR="${VULS_DIR:-/home/vcap/deps/##INDEX##}"
 CF_APP_NAME="$(echo ${VCAP_APPLICATION} | jq -r '.application_name')"
 VULS_HOST_ID="${VULS_HOST_ID:-${CF_APP_NAME}-${CF_INSTANCE_INDEX}-${CF_INSTANCE_GUID}}"
 RESULTS_DIR="${RESULTS_DIR:-/home/vcap/tmp}"
-SCAN_BIN="${SCAN_BIN:-vuls}"
-SCAN_OPTS="${SCAN_OPTS:-scan -config=${VULS_DIR}/dist/config.toml -libs-only -results-dir=${RESULTS_DIR}}"
+SCAN_BIN="${SCAN_BIN:-${VULS_DIR}/bin/vuls}"
+SCAN_OPTS="${SCAN_OPTS:-scan -config=config.toml -libs-only -results-dir=${RESULTS_DIR}}"
 UPLOAD_BIN="${UPLOAD_BIN:-''}"
 UPLOAD_OPTS="${UPLOAD_OPTS:-''}"
 
-sed -i "s/servers.placeholder/servers.${VULS_HOST_ID}/" $VULS_DIR/dist/config.toml
+sed -i "s/servers.placeholder/servers.${VULS_HOST_ID}/" config.toml
 
 $SCAN_BIN $SCAN_OPTS
 
