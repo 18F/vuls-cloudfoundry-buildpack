@@ -3,7 +3,7 @@
 # an executable that has no daemon-like functionality for long-running
 # processes.
 
-check program vuls_scan
-    with path "/usr/bin/true"
-    every "0 10 * * *"
+check program scan
+    with path "/home/vcap/app/run-scan.sh"
+    every "0 1 * * *"
     if status != 0 then alert
