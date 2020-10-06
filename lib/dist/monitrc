@@ -10,5 +10,6 @@ set httpd
 
 check program scan
     with path "/home/vcap/app/run-scan.sh"
+    without timeout 60 seconds
     every "0 1 * * *"
     if status != 0 then alert
