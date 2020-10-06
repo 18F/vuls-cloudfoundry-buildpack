@@ -17,7 +17,7 @@ MONIT_SHA1SUM=${MONIT_SHA1SUM:-${MONIT_URL}.sha256}
 MONIT_CRONTAB=${MONIT_CRONTAB:-${STAGING_DIR}/dist/monitrc}
 MONIT_CRONTAB_CMD=${MONIT_CRONTAB_CMD:-"5 6 * * * /home/vcap/app/.profile.d/00-run-scan.sh"}
 
-VULS_VERSION=${VULS_VERSION:-0.11.0}
+VULS_VERSION=${VULS_VERSION:-0.12.3}
 VULS_URL="${VULS_URL:-https://github.com/future-architect/vuls/releases/download/v${VULS_VERSION}/vuls_${VULS_VERSION}_linux_amd64.tar.gz}"
 
 
