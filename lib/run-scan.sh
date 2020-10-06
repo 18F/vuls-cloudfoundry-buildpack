@@ -8,7 +8,7 @@ RESULTS_DIR="${RESULTS_DIR:-/home/vcap/tmp}"
 SCAN_BIN="${SCAN_BIN:-vuls}"
 SCAN_OPTS="${SCAN_OPTS:-scan -config=config.toml -libs-only -results-dir=${RESULTS_DIR}}"
 UPLOAD_BIN="${UPLOAD_BIN:-''}"
-UPLOAD_OPTS="${UPLOAD_OPTS:-''}"
+UPLOAD_OPTS="${UPLOAD_OPTS:-'--connect-timeout 0.5 --max-time 10'}"
 
 sed -i "s/servers.placeholder/servers.${VULS_HOST_ID}/" config.toml
 
