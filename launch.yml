@@ -1,7 +1,7 @@
 ---
     processes:
     - type: monit
-      command: "monit -vv -I -d 120 -c monitrc -l /home/vcap/logs/monit.log"
+      command: "monit -vv -I -d 86400 -c monitrc -l /home/vcap/logs/monit.log"
       limits:
         memory: 10
       platforms:
