@@ -10,5 +10,5 @@ set httpd
 
 check program dependency_upgrades_scan
     with path "/home/vcap/app/run-scan.sh"
-    without timeout 60 seconds
+    with timeout 60 seconds
     if status != 0 then alert
