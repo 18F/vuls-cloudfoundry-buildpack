@@ -28,25 +28,25 @@ mkdir -p $BUILD_DIR/.profile.d
 
 cp -r $ROOT_DIR/lib/dist $STAGING_DIR/
 
-# echo "Download monit asset from ${MONIT_URL}"
-# pushd /tmp
+echo "Download monit asset from ${MONIT_URL}"
+pushd /tmp
 
-# curl -L -O $MONIT_URL
+curl -L -O $MONIT_URL
 
-# curl -L -O $MONIT_SHA1SUM
+curl -L -O $MONIT_SHA1SUM
 
-# sha256sum -c $MONIT_ARCHIVE.sha256
+sha256sum -c $MONIT_ARCHIVE.sha256
 
-# tar -C /tmp -xf $MONIT_ARCHIVE
+tar -C /tmp -xf $MONIT_ARCHIVE
 
-# (
-#   cd /tmp/$(basename $MONIT_ARCHIVE .tar.gz) && \
-#   ./configure --prefix=$STAGING_DIR --without-pam && \
-#   make && \
-#   make install
-# )
+(
+  cd /tmp/$(basename $MONIT_ARCHIVE .tar.gz) && \
+  ./configure --prefix=$STAGING_DIR --without-pam && \
+  make && \
+  make install
+)
 
-# popd
+popd
 
 echo "Download vuls asset from ${VULS_URL}"
 DOWNLOAD_PATH=$STAGING_DIR/vuls.tar.gz
